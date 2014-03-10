@@ -19,7 +19,6 @@ def main_read_options(argv)
   options = {
     a: nil,
     n: nil,
-    help: false,
     export: nil,
     accuracy: 4,
     display: true,
@@ -31,11 +30,6 @@ def main_read_options(argv)
   while i < max do
     arg = ARGV[i].to_s
     arg2 = ARGV[i + 1].to_s
-
-    if arg.match /(^(\-)([a-z])*h([a-z]*))|(^\-\-help)/
-      puts "Option help"
-      options[:help] = true
-    end
 
     if arg.match /(^(\-)([a-z])*e([a-z]*))|(^\-\-export)/
       puts "Option export"

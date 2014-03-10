@@ -28,7 +28,6 @@ def main(argv)
   options = main_read_options(argv)
   a = options[:a]
   n = options[:n]
-  help = options[:help]
   export = options[:export]
   accuracy = options[:accuracy] + 1
   display = options[:display]
