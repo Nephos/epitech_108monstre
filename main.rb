@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 #encoding: utf-8
 
+require 'myerror'
 require 'gruff'
 require_relative 'monstre.class'
 require_relative 'options'
@@ -29,12 +30,16 @@ def main(argv)
   n = options[:n]
   help = options[:help]
   export = options[:export]
-  accuracy = options[:accuracy]
+  accuracy = options[:accuracy] + 1
   display = options[:display]
+  fitness = options[:fitness]
+
+  MyError::Error.call "No n specified" if n == nil
+  MyError::Error.call "No a specified" if a == nil
 
   m = Monstre.new(a, n)
-  rate = (n / 1000.0).round(accuracy)
-  g = main_get_gruff(-n, n, 1000)
+  rate = (n.to_f / fitness).round(accuracy)
+  g = main_get_gruff(-n, n, fitness.to_i)
 
   ylist = []
   xlist = []

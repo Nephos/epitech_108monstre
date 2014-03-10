@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 #encoding: utf-8
 
+REGEX_FLOAT = /^[-+]?([0-9]*\.[0-9]+|[0-9]+)/
+
 def list_to_txt xlist, ylist, name
   f = File.open(name.to_s, "w")
   puts "Write the list to #{name}"
@@ -20,21 +22,44 @@ def main_read_options(argv)
     help: false,
     export: nil,
     accuracy: 4,
-    display: true
+    display: true,
+    fitness: 1000.0
   }
 
-  ARGV.each do |arg|
-    if arg.match /(^(\-)([a-z])*h([a-z]*))|(\-\-help)/
+  max = ARGV.size
+  i = 0
+  while i < max do
+    arg = ARGV[i]
+    arg2 = ARGV[i + 1]
+
+    if arg.match /(^(\-)([a-z])*h([a-z]*))|(^\-\-help)/
       puts "Option help"
       options[:help] = true
     end
 
-    if arg.match /(^(\-)([a-z])*e([a-z]*))|(\-\-export)/
+    if arg.match /(^(\-)([a-z])*e([a-z]*))|(^\-\-export)/
       puts "Option export"
       options[:export] = true
     end
 
-    if arg.match /[-+]?([0-9]*\.[0-9]+|[0-9]+)/
+    if arg.match /(^\-\-nodisplay)/
+      puts "Option no display"
+      options[:display] = false
+    end
+
+    if arg.match /(^(\-)([a-z])*a)|(^\-\-accuracy)/ and arg2.match(REGEX_FLOAT)
+      puts "Option accuracy"
+      options[:accuracy] = arg2.to_i
+      i += 1
+    end
+
+    if arg.match /(^(\-)([a-z])*f)|(^\-\-fitness)/ and arg2.match(REGEX_FLOAT)
+      puts "Option fitness"
+      options[:fitness] = arg2.to_f
+      i += 1
+    end
+
+    if arg.match(REGEX_FLOAT)
       if options[:a] == nil
         options[:a] = arg.to_f
         puts "a = #{options[:a]}"
@@ -43,6 +68,8 @@ def main_read_options(argv)
         puts "n = #{options[:n]}"
       end
     end
+
+    i += 1
 
   end
   return options
