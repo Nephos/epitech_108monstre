@@ -25,13 +25,13 @@ def main_get_gruff xmin, xmax, n, resolution='1200x800'
   xmax = xmax.to_i
   xmin = xmin.to_i
 
-  xmax_ = (xmax - xmin) * n
+  xmax_ = (xmax - xmin) * (n / 2)
   xmin_ = 0
 
   g.labels = {
     xmin_ => xmin.to_s,
-    (xmax_ + xmin_) / 2 => '0',
-    (xmax_ + xmin_) + 1 => xmax.to_s,
+    (xmax_ + xmin) / 2  => '0',
+    (xmax_ + xmin_) - 1 => xmax.to_s,
   }
   return g
 end
