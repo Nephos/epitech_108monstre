@@ -1,61 +1,41 @@
-.\" Manpage for 107transfert.
+.\" Manpage for 108monstre.
 .\" Contact poulet_a@epitech.eu and broggi_t@epitech.eu in to correct errors or typos.
-.TH 107TRANSFERT "8" "Mars 2014" "1.0" "107transfert man page"
+.TH 108MONSTER "10" "Mars 2014" "1.0" "108monstre man page"
 .SH NAME
 .PP
-107transfert \- evaluate polynomials and print rationals functions
+108monstre \- evaluate polynomials and print rationals functions
 
 .SH SYNOPSIS
 .PP
-\fB./107transfert\fR [\fPPARAMS\fR]...
+\fB./108monstre\fR [\fPPARAMS\fR]...
 .SH DESCRIPTION
 .PP
-If there is only one argument, the programm will evalue the polynomial given in parameter in one million points, with two methods : a \fInaiv algorithm\fR and the \fIHorner method\fR. It will display the time used to execute this two methods. Else if there are two or more arguments, it will interprete each arguments two per two as a \fIrational function\fR, and it will display each rational function on a graphical window. If there is no parameter, the \fBinteractive mode\fR will be launched.
 
 .SH OPTIONS
 .TP
 \fB-h\fR, \fB--help\fR
 Display this help and exit
 .TP
-\fBpolynomial\fR
-Evalue the polynomial in each point from 0 to 1000 with a step of 0.001, with two methods : a \fInaiv algorithm\fR and the \fIHorner method\fR, then it will display the time used to execute this two methods.
-.TP
-\fBpolynomial polynomial\fR
-Evalue the polynomials as a \fIrational\fR function, and display it in a graphic window. This options are repeatables.
 
 .SH INTERACTIVE MODE
 .PP
 The availables options in interactive mode are the following :
 .TP
-\fBadd\fR
-Add a rational
-.TP
-\fBexit\fR
-Leave the program
-.TP
-\fBlist\fR
-List the rationals
-.TP
-\fBrm\fR
-Remove a rational
 
 .SH EXAMPLES
 .TP
-\fB./107transfert "6|5|4|3|2|1"\fR
-Evalue the polynomial in one million points with the \fInaiv algorithm\fR and display the time used to do this. Do the same with the \fIHorner method\fR
+
 .TP
-\fB./107transfert "5|18|1|2|3" "1|0|0|8|3"\fR
-Display the (3x^4 + 2x^3 + x^2 + 18x + 5) / (3x^4 + 8x^3 + 1) function in a graphical window
-.TP
-\fB./107transfert\fR
+\fB./108monstre\fR
 Run the interactive mode ;)
+
 .SH SEE ALSO
 No related manpage.
 
 .SH REPORTING BUGS
 No known bugs.
 .br
-Report ./107transfert bugs to arthur.poulet@epitech.eu and thibaut.broggi@epitech.eu
+Report ./108monstre bugs to arthur.poulet@epitech.eu and thibaut.broggi@epitech.eu
 
 .SH AUTHOR
 poulet_a, broggi_t
