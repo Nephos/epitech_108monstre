@@ -29,8 +29,8 @@ def main_read_options(argv)
   max = ARGV.size
   i = 0
   while i < max do
-    arg = ARGV[i]
-    arg2 = ARGV[i + 1]
+    arg = ARGV[i].to_s
+    arg2 = ARGV[i + 1].to_s
 
     if arg.match /(^(\-)([a-z])*h([a-z]*))|(^\-\-help)/
       puts "Option help"
