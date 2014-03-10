@@ -2,21 +2,8 @@
 #encoding: utf-8
 
 require 'gruff'
-
-class Monstre
-  def initialize a=2, nmax=2
-    @a = a
-    @n = nmax
-  end
-
-  def calc x
-    y = 0
-    (1..(@n + 1)).each do |k|
-      y += Math.cos(@a**k * Math::PI * x) / (2 * k)
-    end
-    return y
-  end
-end
+require_relative 'monstre.class'
+require_relative 'options'
 
 def main_get_gruff xmin, xmax, n, resolution='1200x800'
   g = Gruff::Bezier.new(resolution.to_s)
@@ -37,20 +24,38 @@ def main_get_gruff xmin, xmax, n, resolution='1200x800'
 end
 
 def main(argv)
-  a = ARGV[0].to_f
-  n = ARGV[1].to_i.abs
+  options = main_read_options(argv)
+  a = options[:a]
+  n = options[:n]
+  help = options[:help]
+  export = options[:export]
+  accuracy = options[:accuracy]
+  display = options[:display]
+
   m = Monstre.new(a, n)
-  rate = n / 1000.0
+  rate = (n / 1000.0).round(accuracy)
   g = main_get_gruff(-n, n, 1000)
 
   ylist = []
+  xlist = []
   x = -n
-  while x <= n
-    ylist << m.calc(x)
-    x += rate
+
+  #opti the loops
+  if export == true
+    while x <= n
+      xlist << x
+      ylist << m.calc(x).round(accuracy)
+      x = (x + rate).round(accuracy)
+    end
+  else
+    while x <= n
+      ylist << m.calc(x).round(accuracy)
+      x = (x + rate).round(accuracy)
+    end
   end
 
   g.data :monstre, ylist
   g.write("out.png")
-  `eog out.png`
+  list_to_txt(xlist, ylist, "out.txt") if export == true
+  `eog out.png` if display == true
 end
