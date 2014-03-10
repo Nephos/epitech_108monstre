@@ -3,19 +3,23 @@
 .TH 108MONSTER "10" "Mars 2014" "1.0" "108monstre man page"
 .SH NAME
 .PP
-108monstre \- evaluate polynomials and print rationals functions
+108monstre \- evaluate monstrual function
 
 .SH SYNOPSIS
 .PP
 \fB./108monstre\fR [\fPPARAMS\fR]...
 .SH DESCRIPTION
 .PP
+./108monstre is a program that trace approximations of monstrual functions given in parameters. The function is as the following :
+.br
+x -> cos(a^k * pi * x) / 2^k for k in 0..+infinity with a > 2
+.br
+a and nmax are given in parameters.
 
 .SH OPTIONS
 .TP
 \fB-h\fR, \fB--help\fR
 Display this help and exit
-.TP
 
 .SH INTERACTIVE MODE
 .PP
@@ -24,6 +28,8 @@ The availables options in interactive mode are the following :
 
 .SH EXAMPLES
 .TP
+\fB./108monstre 2.3 2\fR
+Make an approximation of the menstrual function with 2.3 as a and 2 as nmax
 
 .TP
 \fB./108monstre\fR
