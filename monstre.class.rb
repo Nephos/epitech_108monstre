@@ -14,4 +14,24 @@ class Monstre
     end
     return y
   end
+
+  def do_list accuracy, rate, n, export=false
+    ylist = []
+    xlist = []
+    x = -n
+    #opti the loops
+    if export == true
+      while x <= n
+        xlist << x
+        ylist << calc(x).round(accuracy)
+        x = (x + rate).round(accuracy)
+      end
+    else
+      while x <= n
+        ylist << calc(x).round(accuracy)
+        x = (x + rate).round(accuracy)
+      end
+    end
+    return {x: xlist, y: ylist}
+  end
 end

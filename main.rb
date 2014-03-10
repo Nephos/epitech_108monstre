@@ -41,26 +41,9 @@ def main(argv)
   rate = (n.to_f / fitness).round(accuracy)
   g = main_get_gruff(-n, n, fitness.to_i)
 
-  ylist = []
-  xlist = []
-  x = -n
-
-  #opti the loops
-  if export == true
-    while x <= n
-      xlist << x
-      ylist << m.calc(x).round(accuracy)
-      x = (x + rate).round(accuracy)
-    end
-  else
-    while x <= n
-      ylist << m.calc(x).round(accuracy)
-      x = (x + rate).round(accuracy)
-    end
-  end
-
-  g.data :monstre, ylist
+  list = m.do_list(accuracy, rate, n, export)
+  g.data :monstre, list[:y]
   g.write("out.png")
-  list_to_txt(xlist, ylist, "out.txt") if export == true
+  list_to_txt(list[:x], list[:y], "out.txt") if export == true
   `eog out.png` if display == true
 end
