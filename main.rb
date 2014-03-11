@@ -37,10 +37,10 @@ def main(argv)
   MyError::Error.call "No a specified" if a == nil
 
   m = Monstre.new(a, n)
-  rate = (n.to_f / fitness).round(accuracy)
-  g = main_get_gruff(-n, n, fitness.to_i)
+  rate = (2 / fitness).round(accuracy)
+  g = main_get_gruff(-2, 2, fitness.to_i)
 
-  list = m.do_list(accuracy, rate, n, export)
+  list = m.do_list(accuracy, rate, 2, export)
   g.data :monstre, list[:y]
   g.write("out.png")
   list_to_txt(list[:x], list[:y], "out.txt") if export == true

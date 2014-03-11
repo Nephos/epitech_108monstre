@@ -9,8 +9,8 @@ class Monstre
 
   def calc x
     y = 0
-    (1..(@n + 1)).each do |k|
-      y += Math.cos(@a**k * Math::PI * x) / (2 * k)
+    (0..(@n)).each do |k|
+      y += Math.cos(@a**k * Math::PI * x) / (2**k)
     end
     return y
   end
