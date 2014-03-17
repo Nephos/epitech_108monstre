@@ -12,7 +12,7 @@
 .PP
 ./108monstre is a program that trace approximations of monstrual functions given in parameters. The function is as the following :
 .br
-x -> cos(a^k * pi * x) / 2^k for k in 0..+infinity with a > 2
+f: x -> cos(a^k * pi * x) / 2^k for k in 0..+infinity with a > 2
 .br
 a and nmax are given in parameters.
 
