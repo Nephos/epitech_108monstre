@@ -30,6 +30,9 @@ Change the fitness
 \fB-h\fR, \fB--help\fR
 Display this help and exit
 .TP
+\fB--nodisplay\fR
+There is no graphical display
+.TP
 \fB-o\fR, \fB--out\fR
 Change the ouput format. jpg, pdf and png are available.
 
