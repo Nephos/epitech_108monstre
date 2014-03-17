@@ -22,7 +22,8 @@ def main_read_options(argv)
     export: nil,
     accuracy: 4,
     display: true,
-    fitness: 1000.0
+    fitness: 1000.0,
+    out: "png"
   }
 
   max = ARGV.size
@@ -31,7 +32,7 @@ def main_read_options(argv)
     arg = ARGV[i].to_s
     arg2 = ARGV[i + 1].to_s
 
-    if arg.match /(^(\-)([a-z])*e([a-z]*))|(^\-\-export)/
+    if arg.match /(^(\-)([a-z])*e[a-z]*)|(^\-\-export)/
       puts "Option export"
       options[:export] = true
     end
@@ -50,6 +51,12 @@ def main_read_options(argv)
     if arg.match /(^(\-)([a-z])*f)|(^\-\-fitness)/ and arg2.match(REGEX_FLOAT)
       puts "Option fitness"
       options[:fitness] = arg2.to_f
+      i += 1
+    end
+
+    if arg.match /(^(\-)([a-z])*o)|(^\-\-out)/ and arg2.match(/(pdf)|(png)|(jpg)/)
+      puts "Option format #{arg2}"
+      options[:out] = arg2
       i += 1
     end
 

@@ -45,4 +45,5 @@ def main(argv)
   g.write("out.png")
   list_to_txt(list[:x], list[:y], "out.txt") if export == true
   `eog out.png` if display == true
+  `convert out.png out.#{options[:out]}` if options[:out] != "png"
 end
