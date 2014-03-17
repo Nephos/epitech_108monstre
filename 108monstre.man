@@ -18,8 +18,20 @@ a and nmax are given in parameters.
 
 .SH OPTIONS
 .TP
+\fB-a\fR, \fB--accuracy\fR
+Change the accuracy
+.TP
+\fB-e\fR, \fB--export\fR
+Export the results in a txt file
+.TP
+\fB-f\fR, \fB--fitness\fR
+Change the fitness
+.TP
 \fB-h\fR, \fB--help\fR
 Display this help and exit
+.TP
+\fB-o\fR, \fB--out\fR
+Change the ouput format. jpg, pdf and png are available.
 
 .SH INTERACTIVE MODE
 .PP
