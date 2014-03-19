@@ -8,8 +8,8 @@ trap("SIGINT"){print "\n> "}
 
 def interactive
   options = {
-    a: nil,
-    n: nil,
+    a: 2,
+    n: 2,
     accuracy: 4,
     fitness: 1000.0,
     out: "png"
@@ -58,8 +58,7 @@ def interactive
 
     elsif cmds.size > 0
       puts "'#{cmd}' : Command not found"
-
-    print "> " #if cmds.size > 0
     end
+    print "> "
   end
 end
