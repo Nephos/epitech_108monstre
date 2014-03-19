@@ -12,7 +12,8 @@ def interactive
     n: 2,
     accuracy: 4,
     fitness: 1000.0,
-    out: "png"
+    out: "png",
+    display: true
   }
   list = {x: [], y: []}
 
