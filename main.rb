@@ -24,8 +24,9 @@ def main_get_gruff xmin, xmax, n, resolution='1200x800'
   return g
 end
 
-def main(argv)
-  options = main_read_options(argv)
+def main(argv, interactif=false, arg_option={})
+  options = arg_option if interactif == true
+  options = main_read_options(argv) if interactif == false
   a = options[:a]
   n = options[:n]
   export = options[:export]

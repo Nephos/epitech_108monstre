@@ -2,6 +2,7 @@
 #encoding: utf-8
 
 require_relative "main.rb"
+require_relative "options.rb"
 
 trap("SIGINT"){print "\n> "}
 
@@ -13,6 +14,7 @@ def interactive
     fitness: 1000.0,
     out: "png"
   }
+  list = {x: [], y: []}
 
   print "> "
   loop do
@@ -21,7 +23,7 @@ def interactive
 
     if cmd.match /^export?/
       puts "Exporting in file out.txt..."
-      # export in out.txt
+      list_to_txt(list[:x], list[:y], "out.txt") if export == true
 
     elsif cmd.match /^a(ccuracy)?/
       puts "Accuracy redefined : #{cmds[1].to_i}"
@@ -36,7 +38,7 @@ def interactive
       options[:out] = cmds[i]
 
     elsif cmd.match /^d(raw)?/
-      #drawing function
+      main(nil, true, options)
 
     elsif cmd.match /^h(elp)?/
       puts "Commands :"
