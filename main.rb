@@ -41,10 +41,17 @@ def main(argv, interactif=false, arg_option={})
   rate = (2 / fitness).round(accuracy)
   g = main_get_gruff(-2, 2, fitness.to_i)
 
+  puts "Calculation..."
   list = m.do_list(accuracy, rate, 2, export)
   g.data :monstre, list[:y]
+
+  puts "Output..."
   g.write("out.png")
   list_to_txt(list[:x], list[:y], "out.txt") if export == true
+
+  puts "Display... #{display}"
   `eog out.png` if display == true
+
+  puts "Convert..."
   `convert out.png out.#{options[:out]}` if options[:out] != "png"
 end
