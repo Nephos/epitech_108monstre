@@ -23,7 +23,8 @@ def main_read_options(argv)
     accuracy: 4,
     display: true,
     fitness: 1000.0,
-    out: "png"
+    out: "png",
+    title: "Graph of the -42"
   }
 
   max = ARGV.size
@@ -48,13 +49,19 @@ def main_read_options(argv)
       i += 1
     end
 
+    if arg.match /(^(\-)([a-z])*t)|(^\-\-title)/ # check if arg2 exists
+      puts "Option title"
+      options[:title] = arg2.to_s
+      i += 1
+    end
+
     if arg.match /(^(\-)([a-z])*f)|(^\-\-fitness)/ and arg2.match(REGEX_FLOAT)
       puts "Option fitness"
       options[:fitness] = arg2.to_f
       i += 1
     end
 
-    if arg.match /(^(\-)([a-z])*o)|(^\-\-out)/ and arg2.match(/(pdf)|(png)|(jpg)/)
+    if arg.match /(^(\-)([a-z])*o)|(^\-\-out)|(^\-\-output)/ and arg2.match(/(pdf)|(png)|(jpg)/)
       puts "Option format #{arg2}"
       options[:out] = arg2
       i += 1

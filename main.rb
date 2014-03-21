@@ -6,9 +6,9 @@ require 'gruff'
 require_relative 'monstre.class'
 require_relative 'options'
 
-def main_get_gruff xmin, xmax, n, resolution='1200x800'
+def main_get_gruff xmin, xmax, n, title='Graph of the -42', resolution='1200x800'
   g = Gruff::Bezier.new(resolution.to_s)
-  g.title = 'Graph of the -42'
+  g.title = title
 
   xmax = xmax.to_i
   xmin = xmin.to_i
@@ -32,6 +32,7 @@ def main(argv, interactif=false, arg_option={})
   export = options[:export]
   accuracy = options[:accuracy] + 1
   display = options[:display]
+  title = options[:title]
   fitness = options[:fitness]
 
   MyError::Error.call "No n specified" if n == nil
@@ -39,7 +40,7 @@ def main(argv, interactif=false, arg_option={})
 
   m = Monstre.new(a, n)
   rate = (2 / fitness).round(accuracy)
-  g = main_get_gruff(-2, 2, fitness.to_i)
+  g = main_get_gruff(-2, 2, fitness.to_i, title)
 
   puts "Calculation..."
   list = m.do_list(accuracy, rate, 2, export)

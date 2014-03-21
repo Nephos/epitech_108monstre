@@ -24,6 +24,7 @@ def interactive
     accuracy: 4,
     fitness: 1000.0,
     out: "png",
+    title: "Graph of the -42",
     display: true
   }
   options = options.merge(load_conf)
@@ -53,22 +54,28 @@ def interactive
       puts "Fitness redefined : #{cmds[1].to_f}"
       options[:fitness] = cmds[1].to_f
 
-    elsif cmd.match /^o(utput)? .+/ and cmds[1].match(/(pdf)|(png)|(jpg)/)
+    elsif cmd.match /^o(ut(put)?)? .+/ and cmds[1].match(/(pdf)|(png)|(jpg)/)
       puts "Output file format : #{cmds[1]}"
       options[:out] = cmds[1]
 
     elsif cmd.match /^d(raw)?/
       main(nil, true, options)
 
+    elsif cmd.match /^t(itle)?/
+      puts "Title redefined : #{cmds[1]}"
+      options[:title] = cmds[1]
+
     elsif cmd.match /^h(elp)?/
       puts "Commands :"
       puts "accuracy"
-      puts "fitness"
       puts "draw"
-      puts "output"
-      puts "export"
-      puts "help"
       puts "exit"
+      puts "export"
+      puts "fitness"
+      puts "help"
+      puts "man"
+      puts "output"
+      puts "quit"
 
     elsif cmd.match /^m(an)?/
       exec("man ./108monstre.man")

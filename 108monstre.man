@@ -33,13 +33,47 @@ Display this help and exit
 \fB--nodisplay\fR
 There is no graphical display
 .TP
-\fB-o\fR, \fB--out\fR
-Change the ouput format. jpg, pdf and png are available.
+\fB-o\fR, \fB--out\fR, \fB--output\fR
+Change the ouput format. jpg, pdf and png are availables
+.TP
+\fB-t\fR, \fB--title\fR
+Change the title of the graphical window
 
 .SH INTERACTIVE MODE
 .PP
+You can change the default values by editing the 108monstre.conf file
+.br
 The availables options in interactive mode are the following :
 .TP
+\fBa\fR, \fBaccuracy\fR
+Change the accuracy
+.TP
+\fBd\fR, \fBdraw\fR
+Draw the graphical approximation of the menstrual functions given in parameters
+.TP
+\fBexit\fR
+Leave the program
+.TP
+\fBe\fR, \fBexport\fR
+Export the results in a txt file
+.TP
+\fBf\fR, \fBfitness\fR
+Change the fitness
+.TP
+\fBh\fR, \fBhelp\fR
+Display the available commands
+.TP
+\fBm\fR, \fBman\fR
+Display this man and exit
+.TP
+\fBo\fR, \fBout\fR, \fBoutput\fR
+Change the output format. png, jpg and pdf are availables
+.TP
+\fBquit\fR
+Leave the program
+.TP
+\fBt\fR, \fBtitle\fR
+Chqnge the title of the graphical window
 
 .SH EXAMPLES
 .TP
